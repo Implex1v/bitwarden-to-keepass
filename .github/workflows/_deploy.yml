@@ -45,7 +45,7 @@ jobs:
           mkdir ~/.kube
           echo "${{ secrets.kube_config }}" > ~/.kube/config
       - name: Kubernetes deploy
-        working-directory: ${{ inputs.component }}/chart
+        working-directory: chart
         id: helm_deploy
         run: |
           set -ex
