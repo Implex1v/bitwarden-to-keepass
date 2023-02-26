@@ -21,9 +21,6 @@ on:
       cr_user:
         description: The registry user
         required: true
-      domain:
-        description: The domain to deploy to
-        required: true
       kube_config:
         description: The kube config
         required: true
