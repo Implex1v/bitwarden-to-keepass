@@ -1,0 +1,6 @@
+apiVersion: v2
+name: bitwarden-backup
+description: Helm chart for the  bitwarden-backup job
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
