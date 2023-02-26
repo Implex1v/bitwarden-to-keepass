@@ -10,6 +10,8 @@ spec:
     spec:
       template:
         spec:
+          imagePullSecrets:
+          - name: {{ .Values.imagePullSecret }}
           containers:
           - name: pi
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
