@@ -30,14 +30,14 @@ defaults:
     shell: bash
 
 env:
-  COMPONENT: ${{ inputs.component }}
+  COMPONENT: bitwarden-backup
 
 jobs:
   deploy:
     runs-on: ubuntu-22.04
     env:
       VERSION: ${{ inputs.version }}
-      NAMESPACE: pwgen
+      NAMESPACE: backup
     steps:
       - uses: actions/checkout@v3
       - name: Kubernetes login

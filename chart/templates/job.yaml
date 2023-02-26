@@ -16,5 +16,5 @@ spec:
             command: ["./backup.sh"]
             envFrom:
               - configMapRef:
-                  name: {{ include "app.name" . }}-secrets
+                  name: "{{ include "app.name" . }}-secrets"
           restartPolicy: Never
