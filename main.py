@@ -8,6 +8,7 @@ bitwarden_url = os.getenv('BITWARDEN_URL')
 bitwarden_email = os.getenv('BITWARDEN_EMAIL')
 bitwarden_password = os.getenv('BITWARDEN_PASSWORD')
 keepass_password = os.getenv('KEEPASS_PASSWORD')
+keepass_file = os.getenv('KEEPASS_FILE') or 'backup.kdbx'
 
 if bitwarden_password is None or bitwarden_email is None or bitwarden_url is None or keepass_password is None:
     print("BITWARDEN_URL or BITWARDEN_EMAIL or BITWARDEN_PASSWORD or KEEPASS_PASSWORD is None")
@@ -28,7 +29,7 @@ def _map(entry: BitWardenEntry) -> KeePassEntry:
 
 def backup():
     bitwarden = BitWardenClient(bitwarden_url, bitwarden_email, bitwarden_password)
-    keepass = KeePassClient("backup.kdbx", keepass_password)
+    keepass = KeePassClient(keepass_file, keepass_password)
 
     entries = bitwarden.get_entries()
     for entry in entries:

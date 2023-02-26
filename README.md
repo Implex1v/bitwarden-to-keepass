@@ -2,6 +2,16 @@
 
 This project backups all passwords from a bitwarden (compatible) server into a single KeePass (kdbx) file.
 
+The required environment variables are:
+
+```shell
+export BITWARDEN_URL="foo"
+export BITWARDEN_EMAIL="bar"
+export BITWARDEN_PASSWORD="baz"
+export KEEPASS_PASSWORD="123456"
+export KEEPASS_FILE="backup.kdbx"
+```
+
 ## Development
 
 ### venv
