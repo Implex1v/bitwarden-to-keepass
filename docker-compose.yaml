@@ -1,0 +1,13 @@
+version: "3.7"
+
+x-buildargs: &build_args
+  GIT_COMMIT: ${GIT_COMMIT:-'git-commit'}
+  BUILD_VERSION: ${BUILD_VERSION:-'semver'}
+
+services:
+  backup:
+    image: ${CR_BASE:-ghcr.io/implex1v}/bitwarden-to-keepassxc:${BUILD_VERSION:-latest}
+    build:
+      context: .
+      args:
+        <<: *build_args
