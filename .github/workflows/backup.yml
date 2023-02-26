@@ -20,7 +20,7 @@ jobs:
       component: backup
     secrets:
       cr: ${{ secrets.CR }}
-      cr_token: ${{ secrets.GITHUB_TOKEN }}
+      cr_token: ${{ secrets.PAT }}
       cr_user: ${{ secrets.CR_USER }}
 
   deploy:
@@ -33,6 +33,6 @@ jobs:
       component: backup
     secrets:
       cr: ${{ secrets.CR }}
-      cr_token: ${{ secrets.GITHUB_TOKEN }}
+      cr_token: ${{ secrets.PAT }}
       cr_user: ${{ secrets.CR_USER }}
       kube_config: ${{ secrets.KUBE_CONFIG }}
