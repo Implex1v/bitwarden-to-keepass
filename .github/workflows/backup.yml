@@ -1,0 +1,38 @@
+name: backup
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    
+jobs:
+  version:
+    uses: Implex1v/bitwarden-to-keepass/.github/workflows/_version.yml@main
+    with:
+      component: backup
+    
+  build:
+    uses: Implex1v/bitwarden-to-keepass/.github/workflows/_build.yml@main
+    needs:
+    - version
+    with:
+      version: ${{ needs.version.outputs.version }}
+      component: backup
+    secrets:
+      cr: ${{ secrets.CR }}
+      cr_token: ${{ secrets.GITHUB_TOKEN }}
+      cr_user: ${{ secrets.CR_USER }}
+
+  deploy:
+    uses: Implex1v/bitwarden-to-keepass/.github/workflows/_deploy.yml@main
+    needs:
+    - version
+    - build
+    with:
+      version: "${{ needs.version.outputs.version }}"
+      component: backup
+    secrets:
+      cr: ${{ secrets.CR }}
+      cr_token: ${{ secrets.GITHUB_TOKEN }}
+      cr_user: ${{ secrets.CR_USER }}
+      kube_config: ${{ secrets.KUBE_CONFIG }}

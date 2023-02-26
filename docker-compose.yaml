@@ -6,7 +6,7 @@ x-buildargs: &build_args
 
 services:
   backup:
-    image: ${CR_BASE:-ghcr.io/implex1v}/bitwarden-to-keepassxc:${BUILD_VERSION:-latest}
+    image: ${CR_BASE:-ghcr.io/implex1v}/bitwarden-to-keepass:${BUILD_VERSION:-latest}
     build:
       context: .
       args:
