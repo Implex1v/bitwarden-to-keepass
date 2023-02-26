@@ -1,5 +1,5 @@
 image:
-  repository: nginx
+  repository: ghcr.io/implex1v/bitwarden-to-keepass
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
